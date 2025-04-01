@@ -5,7 +5,7 @@ def write_to_console(text: str):
     Args:
         text (str): The text to print.
     """
-    pass
+    print(text)
 
 def write_to_file_builtin(file_path: str, text: str):
     """
@@ -15,4 +15,10 @@ def write_to_file_builtin(file_path: str, text: str):
         file_path (str): Path to the file to write to.
         text (str): The text to write.
     """
+    try:
+        with open(file_path, "a", encoding="utf-8") as file:
+            file.write(text + "\n")
+    except Exception as e:
+        print(f"Error writing to file: {e}")
+
     pass
